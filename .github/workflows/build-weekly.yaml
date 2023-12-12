@@ -43,7 +43,7 @@ jobs:
         with:
           images: ${{ env.IMG_NAME }}
           tags: |
-            type=raw,value=${{ env.BDATE }},enable=true,suffix="-debian",suffixLatest=true
+            type=raw,value=${{ env.BDATE }},enable=true,suffix=-debian,suffixLatest=true
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
