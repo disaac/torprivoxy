@@ -13,7 +13,7 @@ RUN --mount=type=cache,target=/go/pkg/mod --mount=type=cache,target=/root/.cache
 RUN --mount=type=cache,target=/go/pkg/mod --mount=type=cache,target=/root/.cache/go-build CGO_ENABLED=0 go build -ldflags "-s -w" -trimpath -o /app/obfs4proxy ./obfs4proxy
 
 FROM alpine:latest
-LABEL maintainer="avpnusr"
+LABEL maintainer="disaac"
 
 ADD --link service /etc/service/
 
@@ -25,7 +25,7 @@ RUN apk update --no-cache && apk upgrade -a --no-cache && apk --update --no-cach
 && chown tordocker:tordocker /etc/service \
 && chown -R tordocker:tordocker /etc/service/*
 
-COPY --link --from=obfs4proxy /app/obfs4proxy/obfs4proxy /usr/bin/obfs4proxy 
+COPY --link --from=obfs4proxy /app/obfs4proxy/obfs4proxy /usr/bin/obfs4proxy
 
 COPY <<EOT /docker-entrypoint.sh
 #!/bin/sh

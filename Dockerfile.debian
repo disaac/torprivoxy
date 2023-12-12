@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:labs
 FROM debian:stable-slim
-LABEL maintainer="avpnusr"
+LABEL maintainer="disaac"
 
 ADD --link service /etc/service/
 
